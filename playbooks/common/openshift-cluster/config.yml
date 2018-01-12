@@ -18,7 +18,7 @@
       - docker_image_availability
       - docker_storage
 
-- include: initialize_oo_option_facts.yml
+- import-playbook: initialize_oo_option_facts.yml
   tags:
   - always
 
@@ -32,39 +32,39 @@
     r_openshift_excluder_action: disable
     r_openshift_excluder_service_type: "{{ openshift.common.service_type }}"
 
-- include: ../openshift-etcd/config.yml
+- import-playbook: ../openshift-etcd/config.yml
   tags:
   - etcd
 
-- include: ../openshift-nfs/config.yml
+- import-playbook: ../openshift-nfs/config.yml
   tags:
   - nfs
 
-- include: ../openshift-loadbalancer/config.yml
+- import-playbook: ../openshift-loadbalancer/config.yml
   tags:
   - loadbalancer
 
-- include: ../openshift-master/config.yml
+- import-playbook: ../openshift-master/config.yml
   tags:
   - master
 
-- include: additional_config.yml
+- import-playbook: additional_config.yml
   tags:
   - master
 
-- include: ../openshift-node/config.yml
+- import-playbook: ../openshift-node/config.yml
   tags:
   - node
 
-- include: ../openshift-glusterfs/config.yml
+- import-playbook: ../openshift-glusterfs/config.yml
   tags:
   - glusterfs
 
-- include: openshift_hosted.yml
+- import-playbook: openshift_hosted.yml
   tags:
   - hosted
 
-- include: service_catalog.yml
+- import-playbook: service_catalog.yml
   when:
   - openshift_enable_service_catalog | default(false) | bool
   tags:

@@ -1,13 +1,13 @@
 ---
-- include: initialize_groups.yml
+- import-playbook: initialize_groups.yml
   tags:
   - always
 
-- include: ../../common/openshift-cluster/std_include.yml
+- import-playbook: ../../common/openshift-cluster/std_include.yml
   tags:
   - always
 
-- include: ../../common/openshift-cluster/config.yml
+- import-playbook: ../../common/openshift-cluster/config.yml
   vars:
     openshift_cluster_id: "{{ cluster_id | default('default') }}"
     openshift_debug_level: "{{ debug_level | default(2) }}"

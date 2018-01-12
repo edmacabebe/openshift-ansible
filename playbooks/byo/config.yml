@@ -1,2 +1,2 @@
 ---
-- include: openshift-cluster/config.yml
+- import-playbook: openshift-cluster/config.yml

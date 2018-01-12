@@ -1,16 +1,16 @@
 ---
-- include: evaluate_groups.yml
+- import-playbook: evaluate_groups.yml
   tags:
   - always
 
-- include: initialize_facts.yml
+- import-playbook: initialize_facts.yml
   tags:
   - always
 
-- include: validate_hostnames.yml
+- import-playbook: validate_hostnames.yml
   tags:
   - node
 
-- include: initialize_openshift_version.yml
+- import-playbook: initialize_openshift_version.yml
   tags:
   - always
